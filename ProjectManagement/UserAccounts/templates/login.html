@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} SignUp Form {% endblock %}
+
+{% block content %}
+
+<section class="vh-100 gradient-custom">
+  <div class="container">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow card-registration">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <p>{{ message }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
+          {% endif %}
+          <div class="card-body p-4 p-md-5">
+            <div class="row align-items-center">
+              <div class="col-md-6 mb-4">
+                <h2 class="mb-4 pb-2 pb-md-0 mb-md-5">Login Form</h2>
+              </div>
+              <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/021/666/130/small/login-and-password-concept-3d-illustration-computer-and-account-login-and-password-form-page-on-screen-sign-in-to-account-user-authorization-login-authentication-page-concept-png.png"
+                  alt="" height="180px">
+              </div>
+            </div>
+
+            <form method="post" class="mt-4">
+              {% csrf_token %}
+
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" id="username" class="form-control form-control-lg" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control form-control-lg" required>
+              </div>
+
+              <div class="mt-4">
+                <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} User Profile {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-3 p-sm-4 p-md-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-4 mb-lg-0 text-center">
+                            {% if profile_photo_url %}
+                                <img src="{{ profile_photo_url }}" alt="Profile Image" class="img-fluid rounded-circle" style="max-width: 200px;">
+                            {% else %}
+                                <img src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png" alt="Profile Image" class="img-fluid rounded-circle" style="max-width: 200px;">
+                            {% endif %}
+                        </div>                        
+                        <div class="col-lg-6 px-xl-4">
+                            {% if request.user %}
+                            <div class="bg-dark d-inline-block py-2 px-4 px-sm-5 mb-3 rounded text-center text-sm-start">
+                                <h3 class="h2 text-white mb-0">{{request.user.username}}</h3>
+                            </div>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><span class="text-secondary me-2 font-weight-bold">First Name:</span>{{request.user.first_name}}</li>
+                                <li class="mb-2"><span class="text-secondary me-2 font-weight-bold">Last Name:</span>{{request.user.last_name}}</li>
+                                <li class="mb-2"><span class="text-secondary me-2 font-weight-bold">Email:</span>{{request.user.email}}</li>
+                                <li>
+                                    <a href="{% url 'user_accounts:update_user_profile' request.user.id %}" class="btn btn-dark mt-3">Edit Profile</a>
+                                </li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 tasks">
+            {% if task %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 style="text-align: center;" class="card-title">My Incomplete Task List</h2>
+                    <ul class="list-group list-group-flush">
+                        {% for t in task %}
+                        {% if not t.status == 'Done' %}
+                        <a style="color: black;font-size: larger;" href="{% url 'projects:task_detail' t.id %}">{{forloop.counter}}. {{ t.title }}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

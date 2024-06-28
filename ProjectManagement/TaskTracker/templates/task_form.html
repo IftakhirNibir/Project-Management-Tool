@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 my-3">
+          <div style="text-align: center;" class="icon">
+            <ion-icon name="create-sharp" style="font-size: 50px;"></ion-icon>
+          </div>
+    <div style="margin-bottom: 10px;">
+    <h2>{{ header }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-dark">Save Task</button>
+    </form>
+</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

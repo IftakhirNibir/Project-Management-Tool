@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6 my-3">
+      <div style="text-align: center;" class="icon">
+        <ion-icon name="create-sharp" style="font-size: 50px;"></ion-icon>
+      </div>
+<div style="margin-bottom: 10px;">
+    <h3>Create Project</h3>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.as_p }}
+      </div>
+      {% if form.errors or form.non_field_errors %}
+      <div class="mb-3 p-6 bg-red-100 rounded-xl">
+          {% for field in form %}
+              {{ field.errors }}
+          {% endfor %}
+          {{ form.non_field_errors }}
+      </div>
+  {% endif %}
+    <button type="submit" class="btn btn-dark">Submit <sub><ion-icon name="send-outline" style="font-size: 18px;"></ion-icon></sub></button>
+  </form>
+</div>
+</div>
+</div>
+{% endblock %}

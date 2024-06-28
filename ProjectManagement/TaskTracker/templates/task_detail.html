@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">{{ task.title }}</h2>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ task.status }}</p>
+            <p class="card-text"><strong>Priority:</strong> {{ task.priority }}</p>
+            <p class="card-text"><strong>Assigned to:</strong>{% if task.assigned_to.profile.profile_photo %} <img src="{{ task.assigned_to.profile.profile_photo.url }}" alt="" width="30px"> {% endif %} {{ task.assigned_to.username }}</p>
+            <p class="card-text"><strong>Due Date:</strong> {{ task.due_date }}</p>
+            {% if task.attach_image_file %}
+            <img src="{{ task.attach_image_file.url }}" alt="Task Image" class="img-fluid rounded mt-3 mb-3">
+            {% endif %}
+            <div class="text-center">
+                <a href="{% url 'projects:update_task' task.id %}" class="btn btn-primary me-2">Edit Task</a>
+                <a href="{% url 'projects:delete_task' task.pk %}" class="btn btn-danger me-2">Delete Task</a>
+                <a href="{% url 'projects:task_list' task.project.id %}" class="btn btn-dark">Back to Task List</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

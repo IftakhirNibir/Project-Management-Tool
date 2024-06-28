@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Tasks for {{ project.name }}</h2>
+    {% for m in members %}
+    {% if m.profile.profile_photo %} 
+    <img src="{{ m.profile.profile_photo.url }}" alt="" width="30px"> 
+    {% endif %}
+    {% endfor %}
+    
+    {% if request.user in members or request.user == project.owner %}
+        <div class="mt-4">
+            <ul class="list-group">
+                {% for task in tasks %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-0"><a style="text-decoration: none; color: black;" href="{% url 'projects:task_detail' task.id %}">{{forloop.counter}}. {{ task.title }}</a></h2>
+                        <div class="mt-2">
+                            <span class="badge bg-primary me-2">{{ task.status }}</span>
+                            <span class="badge bg-secondary me-2">{{ task.priority }}</span>
+                            <span class="badge bg-info">{{ task.due_date }}</span>
+                        </div>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="list-group-item">No tasks yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a href="{% url 'projects:create_task' project.id %}" class="btn btn-dark my-3">Create New Task</a>
+    {% else %}
+        <p class="mt-4">You are not a member of this project and cannot view its tasks.</p>
+    {% endif %}
+</div>
+{% endblock %}
