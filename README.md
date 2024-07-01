@@ -53,29 +53,29 @@ http://127.0.0.1:8000/
 ```
 
 ## Snapshots
-### Homepage
+<p>Homepage</p>
 <img src="Snapshots/homepage.png">
-### Signup Page
+Signup Page
 <img src="Snapshots/signup.png">
-### Login Page
+Login Page
 <img src="Snapshots/login.png">
-### User Profile
+User Profile
 <img src="Snapshots/profile.png">
-### Projects
+Projects
 <img src="Snapshots/projects.png">
-### Create Project
+Create Project
 <img src="Snapshots/createproject.png">
-### Edit project
+Edit project
 <img src="Snapshots/editproject.png">
-### Task list
+Task list
 <img src="Snapshots/tasklist.png">
-### Create New Task
+Create New Task
 <img src="Snapshots/newtask.png">
-### Task Details
+Task Details
 <img src="Snapshots/taskdetails.png">
-### Edit Task
-<img src="Snapshots/edit.png">
-### Delete Task
+Edit Task
+<img src="Snapshots/edittask.png">
+Delete Task
 <img src="Snapshots/deletetask.png">
 
 
