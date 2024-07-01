@@ -53,4 +53,36 @@ http://127.0.0.1:8000/
 ```
 
 ## Snapshots
+### Homepage
 <img src="Snapshots/homepage.png">
+### Signup Page
+<img src="Snapshots/signup.png">
+### Login Page
+<img src="Snapshots/login.png">
+### User Profile
+<img src="Snapshots/profile.png">
+### Projects
+<img src="Snapshots/projects.png">
+### Create Project
+<img src="Snapshots/createproject.png">
+### Edit project
+<img src="Snapshots/editproject.png">
+### Task list
+<img src="Snapshots/tasklist.png">
+### Create New Task
+<img src="Snapshots/newtask.png">
+### Task Details
+<img src="Snapshots/taskdetails.png">
+### Edit Task
+<img src="Snapshots/edit.png">
+### Delete Task
+<img src="Snapshots/deletetask.png">
+
+
+
+
+
+
+
+
+
